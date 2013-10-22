@@ -11,7 +11,7 @@ task :bin do
 end
 
 desc "Ejecutar con documentacion"
-task :doc do
+task :test do
 	sh "rspec -I. spec/fraccion_spec.rb --format documentation"
 end
 

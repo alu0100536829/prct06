@@ -13,7 +13,7 @@
 ***********************************************************
 =end
 
-require "./gcd.rb"
+require "lib/gcd.rb"
 
 class Fraccion
 	attr_reader :a, :b #a: numerador, b: denominador
@@ -44,7 +44,7 @@ class Fraccion
 		@a.to_f / @b.to_f #conversion de tipo a flotante mediante to_f
 	end
 
-	def == fraction
+	def == (fraction)
 		if(@a == fraction.a) && (@b == fraction.b)
 			return true 
 		else 
@@ -66,7 +66,7 @@ class Fraccion
         f = Fraccion.new(a, b)
 	end
 	
-	def + fraction
+	def + (fraction)
 		f1 = fraction.reducir
 		f = reducir 
 		if f.denom == f1.denom
@@ -79,20 +79,19 @@ class Fraccion
 
 	end
 
-	def - fraction
-		f1 = fraction.reducir
-		f = reducir 
-		if f.denom == f1.denom
-			return ft = Fraccion.new(f.num - f1.num, f.denom)
-		else
-			num = (f.num * f1.denom) - (f1.num * f.denom)
-			den = f.denom * f1.denom
-			return ft = Fraccion.new(num, den)
+	
+	def -@
+		k = gcd(@a, @b)
+        a = @a / k
+        b = @b / k
+        if (b < 0)
+			return Fraccion.new(a,-b)
+		else 
+			return Fraccion.new(-a,b)
 		end
-
 	end
 
-	def * fraction
+	def * (fraction)
 		f1 = fraction.reducir
 		f = reducir 
 		num = f.num * f1.num
@@ -100,14 +99,14 @@ class Fraccion
 		return ft = Fraccion.new(num, denom)
 	end
 
-	def / fraction
+	def / (fraction)
 		f1 = fraction.reducir
 		f = reducir 
 		num = f.num * f1.denom
 		den = f.denom * f1.num
 		return ft = Fraccion.new(num, den)
 	end
-	def % fraction
+	def % (fraction)
 		
 	end
 
