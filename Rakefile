@@ -2,10 +2,20 @@ task :default => :spec
 
 desc "Ejecutar las espectativas de la clase Fraccion"
 task :spec do
-  sh "rspec -I. spec/fraccion_spec.rb"
+	sh "rspec -I. spec/fraccion_spec.rb"
+end
+
+desc "Ejecutar codigo de la clase Fraccion"
+task :bin do
+	sh "ruby lib/fraccion.rb"
 end
 
 desc "Ejecutar con documentacion"
 task :doc do
-  sh "rspec -I. spec/fraccion_spec.rb --format documentation"
+	sh "rspec -I. spec/fraccion_spec.rb --format documentation"
+end
+
+desc "Ejecutar con formato html"
+task :thtml do
+	sh "rspec -I. spec/fraccion_spec.rb --format html"
 end
