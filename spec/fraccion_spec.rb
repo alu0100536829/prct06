@@ -10,7 +10,7 @@ describe Fraccion do
       		@F.a.should eq(5)
    		end
     	it "Se almacena el denominador" do
-      		@p1.b.should eq(29)
+      		@F.b.should eq(29)
     	end
   	end
 

@@ -39,9 +39,40 @@ class Fraccion
 	def denom
 		return @b
 	end
+	#Fraccion en modo flotante
+	def to_f
+		@a.to_f / @b.to_f #conversion de tipo a flotante mediante to_f
+	end
 
+	def == fraction
+		if(@a == fraction.a) && (@b == fraction.b)
+			return true 
+		else 
+			return false
+		end
+	end
 
+	def abs
+		"#{@a.abs}/#{@b.abs}"
+	end
 
-	
+	def reciprocal
+		"#{@b}/#{@a}"
+	end
+
+	def - fraccion
+		fraccion.a = fraccion.a * -1
+	end 
 
 end
+
+@f = Fraccion.new(-5, 15)
+@f1 = Fraccion.new(5, 25)
+puts @f.to_s
+puts @f.num
+puts @f.denom
+puts @f.to_f
+puts @f.abs
+puts @f == @f1
+puts @f.reciprocal
+-@f
