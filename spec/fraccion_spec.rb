@@ -89,5 +89,40 @@ describe Fraccion do
 			frac.to_s.should eq("6/5")
 		end
 	end
+	
+	describe "#Resto de fracciones" do
+		it "Halla el resto" do
+			#frac = @F % @F1
+			#frac.to_s.should eq("6/5")
+		end
+	end
+	
+	describe "Comprobar fracción mayor que otra" do
+		it "fraccion A mayor que B?" do
+			res = @F > @F1
+			res.should eq(true)
+		end
+	end
+	
+	describe "Comprobar fracción menor que otra" do
+		it "fraccion A menor que B?" do
+			res = @F < @F1
+			res.should eq(false)
+		end
+	end
+	
+	describe "Comprobar fracción mayor o igual que otra" do
+		it "fraccion A mayor o igual que B?" do
+			res = @F >= @F1
+			res.should eq(true)
+		end
+	end
+	
+	describe "Comprobar fracción menor o igual que otra" do
+		it "fraccion A menor o igual que B?" do
+			res = @F <= @F1
+			res.should eq(false)
+		end
+	end
   	
 end

@@ -44,8 +44,8 @@ class Fraccion
 		@a.to_f / @b.to_f #conversion de tipo a flotante mediante to_f
 	end
 
-	def == (fraction)
-		if(@a == fraction.a) && (@b == fraction.b)
+	def == (other)
+		if(@a == other.num) && (@b == other.denom)
 			return true 
 		else 
 			return false
@@ -58,12 +58,6 @@ class Fraccion
 
 	def reciprocal
 		f= Fraccion.new(@b, @a)
-	end
-	def reducir
- 		k = gcd(@a, @b)
-        a = @a / k
-        b = @b / k
-        f = Fraccion.new(a, b)
 	end
 	
 	def + (other)
@@ -118,10 +112,40 @@ class Fraccion
 		Fraccion.new(a,b)
 	end
 	
-	def % (fraction)
+	def % (other)
 		
 	end
-
+	
+	def > (other)
+		if (self.to_f > other.to_f)
+			return true
+		else
+			return false
+		end
+	end
+	
+	def < (other)
+		if (self.to_f < other.to_f)
+			return true
+		else
+			return false
+		end
+	end
+	
+	def >= (other)
+		if (self.to_f >= other.to_f)
+			return true
+		else
+			return false
+		end
+	end
+	
+	def <= (other)
+		if (self.to_f <= other.to_f)
+			return true
+		else
+			return false
+		end
+	end
 
 end
-
