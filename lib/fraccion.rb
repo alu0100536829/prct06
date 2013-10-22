@@ -13,7 +13,7 @@
 ***********************************************************
 =end
 
-
+require "./gcd.rb"
 
 class Fraccion
 	attr_reader :a, :b #a: numerador, b: denominador
@@ -53,26 +53,64 @@ class Fraccion
 	end
 
 	def abs
-		"#{@a.abs}/#{@b.abs}"
+		 f= Fraccion.new(@a.abs, @b.abs)
 	end
 
 	def reciprocal
-		"#{@b}/#{@a}"
+		f= Fraccion.new(@b, @a)
+	end
+	def reducir
+ 		k = gcd(@a, @b)
+        a = @a / k
+        b = @b / k
+        f = Fraccion.new(a, b)
+	end
+	
+	def + fraction
+		f1 = fraction.reducir
+		f = reducir 
+		if f.denom == f1.denom
+			return ft = Fraccion.new(f.num + f1.num, f.denom)
+		else
+			num = (f.num * f1.denom) + (f1.num * f.denom)
+			den = f.denom * f1.denom
+			return ft = Fraccion.new(num, den)
+		end
+
 	end
 
-	def - fraccion
-		fraccion.a = fraccion.a * -1
-	end 
+	def - fraction
+		f1 = fraction.reducir
+		f = reducir 
+		if f.denom == f1.denom
+			return ft = Fraccion.new(f.num - f1.num, f.denom)
+		else
+			num = (f.num * f1.denom) - (f1.num * f.denom)
+			den = f.denom * f1.denom
+			return ft = Fraccion.new(num, den)
+		end
+
+	end
+
+	def * fraction
+		f1 = fraction.reducir
+		f = reducir 
+		num = f.num * f1.num
+		den = f.denom * f1.denom
+		return ft = Fraccion.new(num, denom)
+	end
+
+	def / fraction
+		f1 = fraction.reducir
+		f = reducir 
+		num = f.num * f1.denom
+		den = f.denom * f1.num
+		return ft = Fraccion.new(num, den)
+	end
+	def % fraction
+		
+	end
+
 
 end
 
-@f = Fraccion.new(-5, 15)
-@f1 = Fraccion.new(5, 25)
-puts @f.to_s
-puts @f.num
-puts @f.denom
-puts @f.to_f
-puts @f.abs
-puts @f == @f1
-puts @f.reciprocal
--@f
