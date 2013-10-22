@@ -5,13 +5,13 @@ describe Fraccion do
 		@F = Fraccion.new(5, 29)
     end 
 
-    describe "# Almacenamiento de la faccion" do
-		it "Se almacena correctamente el numerador" do
-	   		@f.a.should eq(5)
-		end
-		it "Se almacena correctamente el denominador" do
-			@f.b.should eq(29)
-		end
-	end
+    describe "# almacenamiento de las coordenadas" do
+    	it "Se almacena correctamente la coordenada X" do
+      		@F.a.should eq(5)
+   		end
+    	it "Se almacena correctamente la coordenada Y" do
+      		@p1.b.should eq(29)
+    	end
+  	end
 
 end
