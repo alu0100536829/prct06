@@ -21,7 +21,12 @@ class Fraccion
 		#comprobamos que los datos de entradas sean numericos
 		raise unless a.is_a?(Numeric)
 		raise unless b.is_a?(Numeric)
-
+		#comprobamos que el dominador no sea cero 
+		raise unless (b != 0)
+		#inicializamos las variables
+		@a, @b = a, b
 	end
+
+	
 
 end
