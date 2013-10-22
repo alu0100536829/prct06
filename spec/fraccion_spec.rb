@@ -54,6 +54,40 @@ describe Fraccion do
 			@F.reciprocal.to_s.should eq("2/3")
 		end
 	end
+	
+	describe "# Opuesto de la fraccion" do
+		it "Halla el opuesto" do
+			frac = -@F
+			frac.to_s.should eq("-3/2")
+		end
+	end
+	
+	describe "#Suma de fracciones" do
+		it "Halla la suma" do
+			frac = @F + @F1
+			frac.to_s.should eq("11/4")
+		end
+	end
 
+	describe "#Resta de fracciones" do
+		it "Halla la resta" do
+			frac = @F - @F1
+			frac.to_s.should eq("1/4")
+		end
+	end
+	
+	describe "#Producto de fracciones" do
+		it "Halla el producto" do
+			frac = @F * @F1
+			frac.to_s.should eq("15/8")
+		end
+	end
+	
+	describe "#Division de fracciones" do
+		it "Halla la division" do
+			frac = @F / @F1
+			frac.to_s.should eq("6/5")
+		end
+	end
   	
 end

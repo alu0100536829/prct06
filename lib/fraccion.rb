@@ -66,17 +66,26 @@ class Fraccion
         f = Fraccion.new(a, b)
 	end
 	
-	def + (fraction)
-		f1 = fraction.reducir
-		f = reducir 
-		if f.denom == f1.denom
-			return ft = Fraccion.new(f.num + f1.num, f.denom)
-		else
-			num = (f.num * f1.denom) + (f1.num * f.denom)
-			den = f.denom * f1.denom
-			return ft = Fraccion.new(num, den)
-		end
-
+	def + (other)
+		comun = @b * other.denom
+		a1 = @a * other.denom
+		a2 = other.num * @b
+		a3 = a1 + a2
+		k = gcd(a3,comun)
+		a3 /= k
+		comun /= k
+		Fraccion.new(a3,comun)
+	end
+	
+	def - (other)
+		comun = @b * other.denom
+		a1 = @a * other.denom
+		a2 = other.num * @b
+		a3 = a1 - a2
+		k = gcd(a3,comun)
+		a3 /= k
+		comun /= k
+		Fraccion.new(a3,comun)
 	end
 
 	
@@ -91,21 +100,24 @@ class Fraccion
 		end
 	end
 
-	def * (fraction)
-		f1 = fraction.reducir
-		f = reducir 
-		num = f.num * f1.num
-		den = f.denom * f1.denom
-		return ft = Fraccion.new(num, denom)
+	def * (other)
+		a = @a * other.num
+		b = @b * other.denom
+		k = gcd(a,b)
+		a /= k
+		b /= k
+		Fraccion.new(a,b)
 	end
 
-	def / (fraction)
-		f1 = fraction.reducir
-		f = reducir 
-		num = f.num * f1.denom
-		den = f.denom * f1.num
-		return ft = Fraccion.new(num, den)
+	def / (other)
+		a = @a * other.denom
+		b = @b * other.num
+		k = gcd(a,b)
+		a /= k
+		b /= k
+		Fraccion.new(a,b)
 	end
+	
 	def % (fraction)
 		
 	end
