@@ -6,19 +6,25 @@ describe Fraccion do
 		@F1 = Fraccion.new(5, 4)
     end 
 
-    describe "# Almacenamiento de la Fraccion" do
+    describe "# Almacenamiento del numerador de fraccion" do
     	it "Se almacena el numerador" do
       		@F.a.should eq(3)
    		end
+   	end
+   	
+   	describe "# Almacenamiento del denominador de fraccion" do
     	it "Se almacena el denominador" do
       		@F.b.should eq(2)
     	end
   	end
 
-  	describe "# Retorno del numerador y denominador" do
+  	describe "# Retorno del numerador" do
     	it "Retorna el numerador" do
       		@F.num.should eq(3)
    		end
+   	end
+   	
+   	describe "# Retorno del denominador" do
     	it "Retorna el denominador" do
       		@F.denom.should eq(2)
     	end
@@ -92,8 +98,8 @@ describe Fraccion do
 	
 	describe "#Resto de fracciones" do
 		it "Halla el resto" do
-			#frac = @F % @F1
-			#frac.to_s.should eq("6/5")
+			frac = @F % @F1
+			frac.to_s.should eq("1/4")
 		end
 	end
 	
